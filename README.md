@@ -5,7 +5,7 @@ Project containing the Docker files for the ODC instance for the LCZ project bel
 to build:
 docker build -t lcz_odc .
 
-to run docker:
+to run docker: <br>
 docker run -p 8888:8888 -it lcz_odc bash
 
 to open jupyter, run in the container terminal:
