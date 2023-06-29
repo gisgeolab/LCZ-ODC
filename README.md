@@ -1,4 +1,3 @@
-## Project description
 ...
 WP and outputs description.
 Link to:
@@ -14,7 +13,7 @@ Authors/ASI/POLIMI
 The LCZ-ODC (Local Climate Zone - Open Data Cube) project aims to develop an innovative methodology for LCZ mapping by leveraging multiple data sources and state-of-the-art technologies for geospatial data management. The testbed selected for the activities is the Metropolitan City of Milan (northern Italy). 
 
 <p align="center">
-<img src=img/testbed.png width="600">
+<img src=img/cmm.jpg width="600">
 </p>
 
 The D-DUST project aims at assessing the contribution (in terms of data availability, operability, cost-effectiveness and accuracy improvement) deriving by the systematic integration of different data sources into the current PM monitoring services of the Lombardy region.
