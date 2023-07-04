@@ -45,9 +45,9 @@ The **branches** in this repository allows to access to the code and the informa
 
 Politecnico di Milano DICA Team:
 - <b>*Daniele Oxoli*</b> (daniele.oxoli@polimi.it)
-- <b>*Emanuele Capizzi*</b> (emanuele.capizzi@polimi.it)
 - <b>*Alberto Vavassori*</b> (alberto.vavassori@polimi.it)
 - <b>*Jesus Rodrigo Cedeno Jimenez*</b> (jesusrodrigo.cedeno@polimi.it)
+- <b>*Emanuele Capizzi*</b> (emanuele.capizzi@polimi.it)
 
 Italian Space Agency (ASI) Team:
 - <b>*Deodato Tapete*</b> (deodato.tapete@asi.it)
