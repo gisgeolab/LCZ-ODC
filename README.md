@@ -1,57 +1,47 @@
-...
-WP and outputs description.
-Link to:
-- Docker ODC
-- Processing Notebooks
----
-Authors/ASI/POLIMI
-
-
-# LCZ-ODC Project (Data-driven moDelling of particUlate with Satellite Technology aid)
+# LCZ-ODC Project (Local Climate Zones and Open Data Cube)
 
 ## Project description
 The LCZ-ODC (Local Climate Zone - Open Data Cube) project aims to develop an innovative methodology for LCZ mapping by leveraging multiple data sources and state-of-the-art technologies for geospatial data management. The testbed selected for the activities is the Metropolitan City of Milan (northern Italy). 
 
 <p align="center">
-<img src=img/cmm.jpg width="600">
+<img src=img/cmm.png width="600">
 </p>
 
-The D-DUST project aims at assessing the contribution (in terms of data availability, operability, cost-effectiveness and accuracy improvement) deriving by the systematic integration of different data sources into the current PM monitoring services of the Lombardy region.
+The main purpose of the LCZ-ODC project is the dentification of Local Climate Zones and study of their correlation with air temperature in the Metropolitan City of Milan through the integration of geospatial data and Earth Observation technologies in Open Data Cube Environment.
+This project is developed in collaboration between **Italian Space Agency (ASI)** and **Politecnico di Milano, Department of Civil and Environmental Engineering (POLIMI DICA)**, in the context of I4DP_SCIENCE program.
 
-This repository contains the code and the information related to the following Work Packages, organized in the following branches:
+### I4DP_SCIENCE Program
+The LCZ ODC project is an integral part of the **I4DP_SCIENCE** program of ASI (Agenzia Spaziale Italiana, agreement n. 2022-30-HH.0). The program serves as an incubation platform to demonstrate, in collaboration with ASI, the operational use of scientifically and operationally mature methods and algorithms, equipped with credible performance/capacity. These methods and algorithms aim to address the needs of the user community that are currently partially satisfied or not yet fulfilled.
 
-1. [WP2 - Data Packages](https://github.com/gisgeolab/D-DUST/tree/WP2)
-    - State-of-the-art air quality and PM monitoring: the output of this point is a review paper published in an international journal
-    - Data repository containing the output files
-2. [WP4 - Predictive Model Design](https://github.com/gisgeolab/D-DUST/tree/WP4)
-    - State-of-the-art of PM modelling and prediction
-    - Models development
+You can find more information on the following websites:
+-  [ASI webpage - LCZ ODC Project First results](https://www.asi.it/2023/05/i4dp_science-primi-traguardi-del-progetto-lcz-odc/)
+- [POLIMI DICA webpage - LCZ ODC prooject](https://www.dica.polimi.it/asi-e-dica-al-via-il-progetto-lcz-odc-una-nuova-frontiera-per-lanalisi-climatica-urbana/)
 
-## 1. WP2 - Data Packages
+### LCZ-ODC Repository
+This repository contains the code and information related to the Work Package 2 (WP2) - Development of the LCZ ODC project. It includes the ODC Docker container and the LCZ Processing Notebooks.
+The **branches** in this repository allows to access to the code and the information related to WP2, organized as follow:
 
-> :warning: More information about the notebooks structure and the considered data are provided in the **[WP2 branch](https://github.com/gisgeolab/D-DUST/tree/WP2)**.
+1. [Docker-ODC](https://github.com/gisgeolab/LCZ-ODC/tree/Docker-ODC)
+    - This branch contains the ODC Docker container.
+    - You can find documentation related to the ODC Docker setup and usage.
+2. [Processing-Notebooks](https://github.com/gisgeolab/LCZ-ODC/tree/Processing-Notebooks)
+    - This branch contains the notebooks used for data preprocessing and obtaining analysis-ready data.
+    - You'll find notebooks for performing LCZ classification and validation.
+    - Additionally, there are notebooks available for visualization and data analysis.
 
-The D-DUST Work Package 2 focuses on the implementation of the project Analysis-ready Data Repository. Data include satellite-based estimates of PM and precursors gases, periodical high-detailed PM observations from on-site sampling with chemical characterization, and ancillary GIS (Geographic Information Systems) data to account for local territorial features that can be informative on PM emissions. Vector grids containing the identified variables are the final output of the the WP2.
+<br>
 
-Summarizing, the following notebooks have been developed for data preparation and processing:
-
-- [**Model Variables Request Notebook**](https://github.com/opengeolab/D-DUST/blob/WP2/Model%20Variables%20Request.ipynb): this notebook is used to retrieve modelled air quality data.
-- [**Ground Sensor Variables Request**](https://github.com/gisgeolab/D-DUST/blob/WP2/Ground%20Sensor%20Variables%20Request%20.ipynb) : this notebook is used to retrieve data for both meteorological and air quality ground stations.
-- [**Satellite Variables Request**](https://github.com/opengeolab/D-DUST/blob/WP2/Satellite%20Variables%20Request.ipynb): this notebook is used to retrieve satellite observations of atmospheric pollutants.
-- [**Date selection**](https://github.com/opengeolab/D-DUST/blob/WP2/Date%20selection.ipynb): this notebook is used to select low precipitation and high-temperature periods.
-- [**Grid Processing**](https://github.com/gisgeolab/D-DUST/blob/WP2/Grid%20Processing.ipynb): this notebook allows computing summary statistics for each variable in each grid cell.
-- Features Selection: add to WP2 branch. Dashboard created to select relevant features using multiple statistical methods, in order to be used in the next modeling steps. (fix)
-
-Link to Zenodo data and review paper
-
-## 2. WP4 - Predictive Model Design
-
-> :warning: More information about the notebooks structure and the considered data are provided in the **[WP4 branch](https://github.com/gisgeolab/D-DUST/tree/WP4)**.
-
-The data repository created in the WP2, will be used in the WP4 concerning monitoring and prediction models development. The use of machine-learning models aims at improving the prediction accuracies into local PM analysis by enabling statistical regressors to account for ancillary spatial covariates affecting local PM emissions.
+> :warning: NOTE: Additionaly, a QGIS plugin called ARPA Weather has been developed in the context of LCZ-ODC project, in order to retrieve ARPA Lombardia ground sensors. More informations are provided in the [ARPA Weather plugin Github repository](https://github.com/gisgeolab/ARPA_Weather_plugin).
 
 ---
+### Authors
 
-<ins><b>Authors</b></ins>: <b>*Daniele Oxoli*</b> (daniele.oxoli@polimi.it), <b>*Emanuele Capizzi*</b> (emanuele.capizzi@polimi.it), <b>*Lorenzo Gianquintireri*</b> (lorenzo.gianquintieri@polimi.it), <b>*Jesus Rodrigo Cedeno Jimenez*</b> (jesusrodrigo.cedeno@polimi.it), <b>*Matteo Bresciani*</b> (matteo.bresciani@mail.polimi.it) - Politecnico di Milano, 2022.
+Politecnico di Milano Team:
+- <b>*Daniele Oxoli*</b> (daniele.oxoli@polimi.it)
+- <b>*Emanuele Capizzi*</b> (emanuele.capizzi@polimi.it)
+- <b>*Alberto Vavassori*</b> (alberto.vavassori@polimi.it)
+- <b>*Jesus Rodrigo Cedeno Jimenez*</b> (jesusrodrigo.cedeno@polimi.it)
 
+Italian Space Agency (ASI) team:
+??
 
