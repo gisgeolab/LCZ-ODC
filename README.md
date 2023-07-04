@@ -44,6 +44,9 @@ The **branches** in this repository allows to access to the code and the informa
 ### Contacts and Authors
 
 Politecnico di Milano DICA Team:
+- <b>*Maria Antonia Brovelli*</b> (maria.brovelli@polimi.it)
+- <b>*Barbara Betti*</b> (barbara.betti@polimi.it)
+- <b>*Giovanna Venuti*</b> (giovanna.venuti@polimi.it)
 - <b>*Daniele Oxoli*</b> (daniele.oxoli@polimi.it)
 - <b>*Alberto Vavassori*</b> (alberto.vavassori@polimi.it)
 - <b>*Jesus Rodrigo Cedeno Jimenez*</b> (jesusrodrigo.cedeno@polimi.it)
