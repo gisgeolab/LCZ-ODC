@@ -1,47 +1,50 @@
-# LCZ-ODC Project (Local Climate Zones - Open Data Cube)
+# Processing, analysis, and classification of Sentinel-2 and PRISMA satellite imagery
 
-## Project description
-The LCZ-ODC (Local Climate Zone - Open Data Cube) project aims to develop an innovative methodology for LCZ mapping by leveraging multiple data sources and state-of-the-art technologies for geospatial data management. The testbed selected for the activities is the Metropolitan City of Milan in northern Italy. 
+This branch contains several Notebooks which are being developed in the frame of the LCZ-ODC project (funded by the [Italian Space Agency](https://www.asi.it/)).
 
-<p align="center">
-<img src=img/cmm.png width="600">
-</p>
+Notebooks are dedicated to the processing of two types of satellite imagery, namely:
+* multispectral [Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) images of the European Space Agency (ESA);
+* hyperspectral [PRISMA](https://www.asi.it/scienze-della-terra/prisma/)[<sup>1</sup>](#1) images of the Italian Space Agency (ASI).
 
-The main purpose of the LCZ-ODC project is the dentification of Local Climate Zones and study of their correlation with air temperature in the Metropolitan City of Milan through the integration of geospatial data and Earth Observation technologies in Open Data Cube Environment.
+The project is mainly focused on the exploitation of PRISMA data to compute Local Climate Zone (LCZ) maps of the study region. Nonetheless, Sentinel-2 data are used as a reference to co-register PRISMA images.
 
-LCZ will be identified by integrating high spectral and spatial resolution imagery obtained from [PRISMA ASI hyspectral satellite](https://www.asi.it/en/earth-science/prisma/) and [Sentinel-2 multispectral satellite](https://sentinel.esa.int/web/sentinel/missions/sentinel-2). Moreover, additional regional and local geospatial data will be used for their classification.
+The area of interest is the Metropolitan City of Milan (MCM) (Northern Italy).
 
-The project also involves studying the correlation between LCZs and heat islands. To achieve this, meteorological data provided by regional monitoring networks (e.g. [ARPA Lombardia](https://www.arpalombardia.it/)) available for the Milan Metropolitan City will be used and integrated into the Open Data Cube.
+## Notebooks description
 
+1. `2S_Preprocessing.ipynb`: allows to read and mosaic the Sentinel-2 tiles covering the area of interest (Metropolitan City of Milan in our case study). The mosaicked Sentinel-2 is clipped the reference PRISMA image extent. The functions of this notebook can be adapted also for other tiles. It is able to read Sentinel-2 bands in .jpeg2000 format and produce final outputs in GeoTIFF format. The user is able to select which bands he wants to export or export the image containing the whole number of bands available.
+2. `PRISMA_S2_coregistration.ipynb`: exploits the pre-processed Sentinel-2 images as a reference for PRISMA imagery coregistration using the [GeFolki algorithm](https://github.com/aplyer/gefolki). It is possible to display and coregister both hyperspectral and pancromatic bands. The user is able to export several band combinations of non-coregisted and coregisted PRISMA images for further analyses. Visualizations about the quality of the coregistration are also provided.
+3. `Plotting.ipynb`: allows the user to interact with pre-processed PRISMA imagery in order to provide a better description of these data. This is done for example by plotting median spectral signatures for several classes available in the training samples, and computing statistics such as band correlation and bands histograms.
+4. `PCA.ipynb`: performs a Principal Component Analysis (PCA) of the hyperspectral PRISMA bands using the [scikit-learn](https://scikit-learn.org/stable/index.html) Python library. This is done in order to reduce the dimensionality of the dataset, but keeping the highest explained variance in the dataset. Reducing the dimensionality allows a faster and better classification. The PRISMA image transformed using PCA can be exported in GeoTIFF file, where each PC corresponds to a single band. The user is able to select the number of bands to be saved in the GeoTIFF file.
+5. `Classification.ipynb`: performs a classification of PRISMA Principal Components into Local Climate Zones. The user is able to provide training samples in shapefile o geopackage format (vectorial), where each polygon corresponds to a specific LCZ class. The classification can be performed using different classification methods available in the [scikit-learn](https://scikit-learn.org/stable/index.html) library and the [XGBoost](https://xgboost.readthedocs.io/en/stable/) library. The implemented methods are:
 
-This project is developed in collaboration between **Italian Space Agency (ASI)** and **Politecnico di Milano, Department of Civil and Environmental Engineering (POLIMI DICA)**, within the context of the I4DP_SCIENCE program.
+    - Random Forest - scikit-learn
+    - AdaBoost - scikit-learn
+    - Gradient Boosting - scikit-learn
+    - XGBoost
 
+    The code is structured also to perform cross-validation using a set of user defined parameters, that can be eventually modified depending on the user's needs.
+    The evaluation of the accuracy is also provided.
+6. `Validation.ipynb`: allows to validate the quality of the classification by using an external dataset never used during the classification step. These are called testing samples and must be provided by the user.
 
-### I4DP_SCIENCE Program
-The LCZ ODC project is an integral part of the **I4DP_SCIENCE** program of ASI (Agenzia Spaziale Italiana, agreement n. 2022-30-HH.0). The program serves as an incubation platform to demonstrate, in collaboration with ASI, the operational use of scientifically and operationally mature methods and algorithms, equipped with credible performance/capacity. These methods and algorithms aim to address the needs of the user community that are currently partially satisfied or not yet fulfilled.
+## Environment setup
 
-You can find more information on the following websites:
--  [ASI webpage - LCZ ODC Project First results](https://www.asi.it/2023/05/i4dp_science-primi-traguardi-del-progetto-lcz-odc/)
-- [POLIMI DICA webpage - LCZ ODC project](https://www.dica.polimi.it/asi-e-dica-al-via-il-progetto-lcz-odc-una-nuova-frontiera-per-lanalisi-climatica-urbana/)
+It is possible to set up a virtual Python environment using [Anaconda](https://anaconda.org). 
 
-### LCZ-ODC Repository
-This repository contains the code and information related to the Work Package 2 (WP2) - Development of the LCZ ODC project. It includes the ODC Docker container and the LCZ Processing Notebooks.
-The **branches** in this repository allows to access to the code and the information related to WP2, organized as follow:
+### Install using the .yml file
 
-1. [Docker-ODC](https://github.com/gisgeolab/LCZ-ODC/tree/Docker-ODC)
-    - This branch contains the ODC Docker container.
-    - You can find documentation related to the ODC Docker setup and usage.
-2. [Processing-Notebooks](https://github.com/gisgeolab/LCZ-ODC/tree/Processing-Notebooks)
-    - This branch contains the notebooks used for data preprocessing and obtaining analysis-ready data.
-    - You'll find notebooks for performing LCZ classification and validation.
-    - Additionally, there are notebooks available for visualization and data analysis.
+Open the terminal, move to the folder containing the `environment.yml` file and type: 
+```sh
+$ conda env create -f environment.yml
+```
+This command will automatically build the conda environment containing the libraries for data processing and features selection.
 
-<br>
+## Notes
 
-> :warning: NOTE: In addition, a QGIS plugin called ARPA Weather has been developed in the context of LCZ-ODC project, in order to retrieve ARPA Lombardia ground sensors. More informations are provided in the dedicated [ARPA Weather Plugin - Github repository](https://github.com/gisgeolab/ARPA_Weather_plugin).
+<span id="1"><sup>1</sup>Hyperspectral Precursor of the Application Mission (*Precursore Iperspettrale della Missione Applicativa*)</span>
 
 ---
-### Contacts and Authors
+## Contacts and Authors
 
 Politecnico di Milano DICA Team:
 - <b>*Maria Antonia Brovelli*</b> (maria.brovelli@polimi.it)
@@ -56,4 +59,3 @@ Italian Space Agency (ASI) Team:
 - <b>*Deodato Tapete*</b> (deodato.tapete@asi.it)
 - <b>*Mario Siciliani de Cumis*</b> (mario.sicilianidecumis@asi.it)
 - <b>*Patrizia Sacco*</b> (patrizia.sacco@asi.it)
-
