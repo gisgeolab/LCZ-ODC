@@ -21,7 +21,7 @@ $ docker volume create volume_asi
 $ docker run -p 8888:8888 --mount type=volume,src=volume_asi,target=/home/asi -it lcz_odc bash
 
 
-## CONTAINER SETUP
+## CONTAINER SETUP:
 
 #### Start postgresql service:
 $ system postresql start;
