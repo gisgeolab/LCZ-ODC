@@ -10,7 +10,7 @@ Project containing the Docker files for the ODC instance for the LCZ project bel
 3) Run the following command
 $ docker build -t lcz_odc .
 
-#### Build the image from scratch:
+#### Download compiled Docker image:
 1) Pull the docker image directly from the Docker repository:
 https://hub.docker.com/repository/docker/rodrigocedeno/lcz-odc/general
 
