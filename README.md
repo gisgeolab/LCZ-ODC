@@ -24,7 +24,7 @@ $ docker run -p 8888:8888 --mount type=volume,src=volume_asi,target=/home/asi -i
 ## CONTAINER SETUP:
 
 #### Start postgresql service:
-$ system postresql start;
+$ system postgresql start;
 
 #### Activate the conda environment
 $ source activate odc_env;
@@ -34,6 +34,19 @@ $ mkdir /home/asi/datacube_config;
 
 #### Change to datacube config directory
 $ cd /home/asi/datacube_config;
+$ nano datacube.conf
+
+#### Paste the following content:
+[datacube]
+db_database: datacube
+
+#A blank host will use a local socket. Specify a hostname (such as localhost) to use TCP.
+db_hostname: localhost
+
+#Credentials are optional: you might have other Postgres authentication configured.
+#The default username otherwise is the current user id.
+db_username: postgres
+db_password: password
 
 #### Start datacube system
 $ datacube system init;
