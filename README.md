@@ -38,15 +38,15 @@ $ nano datacube.conf
 
 #### Paste the following content:
 [datacube]
-db_database: datacube
+db_database: agdcintegration
 
 #A blank host will use a local socket. Specify a hostname (such as localhost) to use TCP.
 db_hostname: localhost
 
 #Credentials are optional: you might have other Postgres authentication configured.
 #The default username otherwise is the current user id.
-db_username: postgres
-db_password: password
+db_username: asi
+db_password: asi
 
 #### Start datacube system
 $ datacube system init;
