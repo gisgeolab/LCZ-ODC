@@ -4,7 +4,7 @@ This branch contains the [Docker](https://www.docker.com/) files for the ODC (Op
 
 <br>
 <p align="center">
-  <img src="img/odc.png" width="250" style="margin-right: 100px;">
+  <img src="img/odc.png" width="250" style="margin-right: 200px;">
   <img src="img/docker.png" width="300">
 </p>
 <br>
@@ -14,6 +14,8 @@ This branch contains the [Docker](https://www.docker.com/) files for the ODC (Op
 The [Open Data Cube (ODC)](https://www.opendatacube.org/) is an open-source geospatial data analysis framework that provides a scalable and efficient platform for managing and analyzing large volumes of satellite imagery and other geospatial data. It enables users to access and process satellite data in a flexible and interoperable manner.
 
 Having a preconfigured Docker image of Open Data Cube, as provided in this repository, is essential for simplifying the setup and deployment process. The Docker image encapsulates all the necessary dependencies and configurations, allowing users to quickly and easily set up an instance of Open Data Cube for the LCZ-ODC project. This eliminates the need for manual installation and configuration of various software components, saving time and effort in the setup process.
+
+It will be possible to launch Jupyter Notebook, and you can access it through your web browser . It will allows to use Jupyter's interactive environment for your data analysis, visualization, and exploration tasks.
 
 > ⚠️ Note: The Dockerfile provided in this repository is tailored specifically for the ASI LCZ-ODC project. If you have specific requirements or need to customize the configuration, you can modify the Dockerfile accordingly to meet your needs.
 
@@ -84,7 +86,7 @@ $ cd /home/asi/datacube_config;
 $ nano datacube.conf
 ```
 
-Paste the following content into the `datacube.conf` file:
+5. Paste the following content into the `datacube.conf` file:
 
 ```sh
 [datacube]
@@ -99,21 +101,19 @@ db_username: your_username
 db_password: your_password
 ```
 
-5. Start datacube system
+6. Start datacube system
 
 ```sh
 $ datacube system init;
 ```
 
-6. Return to main folder
+7. Return to main folder
 
 ```sh
 $ cd ..
 ```
 
-#### Open Jupyter Notebook
-
-Once inside the Docker container, you can open Jupyter Notebook by running the following command in the container terminal:
+8. Once inside the Docker container, you can open Jupyter Notebook by running the following command in the container terminal:
 
 ```sh
 $ jupyter notebook --ip 0.0.0.0 --port 8888 --allow-root
