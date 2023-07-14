@@ -15,7 +15,7 @@ The [Open Data Cube (ODC)](https://www.opendatacube.org/) is an open-source geos
 
 Having a preconfigured Docker image of Open Data Cube, as provided in this repository, is essential for simplifying the setup and deployment process. The Docker image encapsulates all the necessary dependencies and configurations, allowing users to quickly and easily set up an instance of Open Data Cube for the LCZ-ODC project. This eliminates the need for manual installation and configuration of various software components, saving time and effort in the setup process.
 
-It will be possible to launch Jupyter Notebook, and you can access it through your web browser . It will allows to use Jupyter's interactive environment for your data analysis, visualization, and exploration tasks.
+It will be possible to launch [Jupyter Notebook](https://jupyter.org/), and you can access it through your web browser. It will allows to use Jupyter's interactive environment for your data analysis, visualization, and exploration tasks.
 
 > ⚠️ Note: The Dockerfile provided in this repository is tailored specifically for the ASI LCZ-ODC project. If you have specific requirements or need to customize the configuration, you can modify the Dockerfile accordingly to meet your needs.
 
@@ -25,11 +25,11 @@ To run the Docker container, please follow one of the following steps:
 
 #### Option 1: Build the image from scratch:
 
-1. Clone this repository branch
+1. Clone this repository branch:
    ```sh
    $ git clone --branch Docker-ODC https://github.com/gisgeolab/LCZ-ODC.git
    ```
-2. Move inside the cloned repository folder
+2. Move inside the cloned repository folder:
    ```sh
    $ cd <folder_path>
    ```
@@ -41,11 +41,11 @@ To run the Docker container, please follow one of the following steps:
 
 #### Option 2: Download Compiled Docker image
 
-Alternatively, you can pull the Docker image directly from the Docker repository using the following link: [LCZ-ODC Docker Image](https://hub.docker.com/repository/docker/rodrigocedeno/lcz-odc/general)
+Alternatively, you can pull the Docker image directly from the Docker repository using the following link: [LCZ-ODC Docker Image](https://hub.docker.com/repository/docker/rodrigocedeno/lcz-odc/general).
 
 ### Create the external volume to use as a data source
 
-Before running the Docker container, create an external volume to use as a data source by executing the following command. Execute the following command to create a volume named volume_asi:
+Before running the Docker container, create an external volume to use as a data source by executing the following command. Execute the following command to create a volume named `volume_asi`:
 
 ```sh
 $ docker volume create volume_asi
@@ -73,13 +73,13 @@ $ system postgresql start;
 $ source activate odc_env;
 ```
 
-3. Create datacube config folder:
+3. Create `datacube_config` folder:
 
 ```sh
 $ mkdir /home/asi/datacube_config;
 ```
 
-4. Change to datacube config directory:
+4. Change to `datacube_config` directory:
 
 ```sh
 $ cd /home/asi/datacube_config;
@@ -101,13 +101,13 @@ db_username: your_username
 db_password: your_password
 ```
 
-6. Start datacube system
+6. Start datacube system:
 
 ```sh
 $ datacube system init;
 ```
 
-7. Return to main folder
+7. Return to main folder:
 
 ```sh
 $ cd ..
