@@ -120,3 +120,26 @@ $ jupyter notebook --ip 0.0.0.0 --port 8888 --allow-root
 ```
 
 This will start Jupyter Notebook and make it accessible on port 8888. You can access it by opening your web browser and navigating to http://localhost:8888.
+
+---
+
+### Authors
+
+- <b>_Jesus Rodrigo Cedeno Jimenez_</b> (jesusrodrigo.cedeno@polimi.it)
+- <b>_Emanuele Capizzi_</b> (emanuele.capizzi@polimi.it)
+
+### Contacts - LCZ-ODC Project
+
+Politecnico di Milano DICA Team:
+
+- <b>_Maria Antonia Brovelli_</b> (maria.brovelli@polimi.it)
+- <b>_Barbara Betti_</b> (barbara.betti@polimi.it)
+- <b>_Giovanna Venuti_</b> (giovanna.venuti@polimi.it)
+- <b>_Daniele Oxoli_</b> (daniele.oxoli@polimi.it)
+- <b>_Alberto Vavassori_</b> (alberto.vavassori@polimi.it)
+
+Italian Space Agency (ASI) Team:
+
+- <b>_Deodato Tapete_</b> (deodato.tapete@asi.it)
+- <b>_Mario Siciliani de Cumis_</b> (mario.sicilianidecumis@asi.it)
+- <b>_Patrizia Sacco_</b> (patrizia.sacco@asi.it)
