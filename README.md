@@ -1,6 +1,6 @@
 # LCZ-ODC Project - Open Data Cube Docker
 
-This branch contains the [Docker](https://www.docker.com/) files for the ODC (Open Data Cube) instance for the [LCZ-ODC project](https://www.asi.it/2023/05/i4dp_science-primi-traguardi-del-progetto-lcz-odc/), which is a collaboration between ASI and Politecnico di Milano.
+This branch contains the [Docker](https://www.docker.com/) files for the ODC (Open Data Cube) instance of the [LCZ-ODC project](https://www.asi.it/2023/05/i4dp_science-primi-traguardi-del-progetto-lcz-odc/), which is a project in collaboration between ASI and Politecnico di Milano.
 
 <br>
 <p align="center">
