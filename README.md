@@ -38,7 +38,9 @@ $ conda env create -f environment.yml
 This command will automatically build the conda environment containing the libraries for data processing and classification.
 
 ---
-## Contacts and Authors
+<ins><b>Authors</b></ins>: <b>*Alberto Vavassori*</b> and <b>*Emanuele Capizzi*</b> - Politecnico di Milano, 2023.
+
+## Contacts
 
 Politecnico di Milano DICA Team:
 - <b>*Maria Antonia Brovelli*</b> (maria.brovelli@polimi.it)
