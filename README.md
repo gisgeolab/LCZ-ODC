@@ -10,7 +10,7 @@ The LCZ-ODC project is mainly focused on the exploitation of PRISMA data to comp
 
 ## Notebooks description
 
-The first two Notebooks are dedicated to data pre-processing. They allow the user to prepare Sentinel-2 and PRISMA data for next stages of processing and analysis. The remaining Notebooks are meant to be used by end-users for the exploration, analysis, and classification of ready-to-use data.
+The first two Notebooks are dedicated to data pre-processing. They allow the user to prepare Sentinel-2 and PRISMA data for next stages of processing and analysis. The remaining Notebooks are meant to be used for the exploration, analysis, and classification of ready-to-use data.
 
 ### Preprocessing Notebooks
 1. [`S2_Preprocessing.ipynb`](https://github.com/gisgeolab/LCZ-ODC/blob/f7cbc26f8995a6d680135c6b0295c554be053633/1%20-%20S2_Preprocessing.ipynb): allows the user to read and mosaic the Sentinel-2 tiles covering the area of interest (i.e. the Metropolitan City of Milan). The mosaicked Sentinel-2 image is clipped to the extent of a reference PRISMA image. The functions of this notebook can be adapted also for other tiles. The functions read Sentinel-2 bands in .jpeg2000 format and produce final outputs in GeoTIFF format. The user can select the bands of interest to be exported as well as export an image containing all the available bands.
