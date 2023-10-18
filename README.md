@@ -124,9 +124,7 @@ This will start Jupyter Notebook and make it accessible on port 8888. You can ac
 ---
 
 ### Authors
-
-- <b>_Jesus Rodrigo Cedeno Jimenez_</b> (jesusrodrigo.cedeno@polimi.it)
-- <b>_Emanuele Capizzi_</b> (emanuele.capizzi@polimi.it)
+<ins><b>Authors</b></ins>: <b>*Jesus Rodrigo Cedeno Jimenez*</b> and <b>*Emanuele Capizzi*</b> - Politecnico di Milano, 2023.
 
 ### Contacts - LCZ-ODC Project
 
@@ -136,6 +134,7 @@ Politecnico di Milano DICA Team:
 - <b>_Barbara Betti_</b> (barbara.betti@polimi.it)
 - <b>_Giovanna Venuti_</b> (giovanna.venuti@polimi.it)
 - <b>_Daniele Oxoli_</b> (daniele.oxoli@polimi.it)
+- <b>_Jesus Rodrigo Cedeno Jimenez_</b> (jesusrodrigo.cedeno@polimi.it)
 - <b>_Alberto Vavassori_</b> (alberto.vavassori@polimi.it)
 
 Italian Space Agency (ASI) Team:
