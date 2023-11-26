@@ -1,0 +1,48 @@
+version: '3.8'
+
+name: lcz-odc
+
+networks:
+  lcz-odc-network:
+    name: lcz-odc-network
+    driver: bridge
+
+services:
+    postgres:
+      container_name: lcz-odc_database
+      hostname: lcz-odc_database
+      image: postgres:16.1-alpine3.18
+      healthcheck:
+        test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "root" ]
+        timeout: 45s
+        interval: 10s
+        retries: 10
+      restart: always
+      environment:
+        - POSTGRES_DB=opendatacube
+        - POSTGRES_PASSWORD=opendatacubepassword
+        - POSTGRES_USER=opendatacube
+      volumes:
+        - ./postgresql/data:/var/lib/postgresql/data
+      ports:
+        - 5432:5432
+      networks:
+        - lcz-odc-network
+
+    lcz-odc:
+      container_name: lcz-odc
+      image: lcz-odc:latest
+      depends_on:
+        - postgres
+      build:
+        context: .docker
+      environment:
+        - DATACUBE_CONFIG_PATH=/home/asi/datacube_conf/datacube.conf
+      volumes:
+        - ./.docker/datacube_conf:/home/asi/datacube_conf
+        - ./.docker/notebooks:/home/asi/notebooks
+        - ./.docker/data:/home/asi/data
+      ports:
+        - 80:8888
+      networks:
+        - lcz-odc-network

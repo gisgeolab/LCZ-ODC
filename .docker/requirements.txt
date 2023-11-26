@@ -1,0 +1,9 @@
+numpy==1.22
+scikit-learn
+tensorflow
+plotly
+pytest-cov
+hypothesis
+rioxarray
+sodapy
+imagecodecs
