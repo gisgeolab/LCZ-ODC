@@ -3,9 +3,7 @@
 data/
 postgresql/
 
-.docker/notebooks/__pycache__
-.docker/notebooks/.ipynb_checkpoints
-.docker/notebooks/.~functions.py
+.docker/notebooks
 
 .docker/datacube_conf/*
 !.docker/datacube_conf/datacube.conf
