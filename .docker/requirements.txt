@@ -7,3 +7,5 @@ hypothesis
 rioxarray
 sodapy
 imagecodecs
+seaborn
+leafmap

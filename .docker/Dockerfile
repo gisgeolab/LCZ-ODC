@@ -9,12 +9,12 @@ RUN --mount=type=cache,target=/root/.cache pip3 install -r requirements.txt
 
 RUN adduser --gecos "" asi
 
-COPY init.sh .
-RUN chmod +x init.sh
-RUN chown -R asi init.sh
+COPY setup ./setup
+RUN chmod -R +x /setup
+RUN chown -R asi /setup
 
 WORKDIR /home/asi
 
 USER asi
 
-ENTRYPOINT ["/tini", "--", "/init.sh"]
+ENTRYPOINT ["/tini", "--", "/setup/init.sh"]

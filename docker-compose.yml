@@ -43,6 +43,6 @@ services:
         - ./.docker/notebooks:/home/asi/notebooks
         - ./.docker/data:/home/asi/data
       ports:
-        - 80:8888
+        - 8000:8888
       networks:
         - lcz-odc-network
