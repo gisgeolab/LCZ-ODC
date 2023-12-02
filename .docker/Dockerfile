@@ -17,4 +17,4 @@ WORKDIR /home/asi
 
 USER asi
 
-ENTRYPOINT ["/tini", "--", "/setup/init.sh"]
+ENTRYPOINT ["/tini", "--", "bash", "/setup/entrypoint.sh"]

@@ -10,22 +10,20 @@ networks:
 services:
     postgres:
       container_name: lcz-odc_database
-      hostname: lcz-odc_database
+      hostname: ${ODC_DB_HOSTNAME}
       image: postgres:16.1-alpine3.18
       healthcheck:
-        test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "root" ]
+        test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "${ODC_DB_USER}" ]
         timeout: 45s
-        interval: 10s
+        interval: 5s
         retries: 10
       restart: always
       environment:
-        - POSTGRES_DB=opendatacube
-        - POSTGRES_PASSWORD=opendatacubepassword
-        - POSTGRES_USER=opendatacube
+        - POSTGRES_DB=${ODC_DB_DATABASE}
+        - POSTGRES_PASSWORD=${ODC_DB_PASSWORD}
+        - POSTGRES_USER=${ODC_DB_USER}
       volumes:
         - ./postgresql/data:/var/lib/postgresql/data
-      ports:
-        - 5432:5432
       networks:
         - lcz-odc-network
 
@@ -33,16 +31,21 @@ services:
       container_name: lcz-odc
       image: lcz-odc:latest
       depends_on:
-        - postgres
+        postgres:
+          condition: service_healthy
       build:
         context: .docker
       environment:
-        - DATACUBE_CONFIG_PATH=/home/asi/datacube_conf/datacube.conf
+        ODC_DB_HOSTNAME: ${ODC_DB_HOSTNAME}
+        ODC_DB_DATABASE: ${ODC_DB_DATABASE}
+        ODC_DB_USER: ${ODC_DB_USER}
+        ODC_DB_PASSWORD: ${ODC_DB_PASSWORD}
+        DATACUBE_CONFIG_PATH: /home/asi/datacube_conf/datacube.conf
+        NBK_SERVER_PASSWORD: ${NBK_SERVER_PASSWORD}
       volumes:
-        - ./.docker/datacube_conf:/home/asi/datacube_conf
         - ./.docker/notebooks:/home/asi/notebooks
         - ./.docker/data:/home/asi/data
       ports:
-        - 8000:8888
+        - 80:8888
       networks:
         - lcz-odc-network
