@@ -12,8 +12,8 @@ if [ ! -e $CONTAINER_STARTED ]; then
   # python3 /setup/feed_odc.py
 
   touch $CONTAINER_STARTED
-
-  nohup jupyter notebook --allow-root --ip='0.0.0.0' --NotebookApp.token=$NBK_SERVER_PASSWORD
 fi
+
+nohup jupyter notebook --allow-root --ip='0.0.0.0' --NotebookApp.token=$NBK_SERVER_PASSWORD
 
 exec "$@"
