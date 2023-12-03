@@ -1,10 +1,8 @@
 .env
+
 **/__pycache__
+**/.ipynb_checkpoints
+**/.~*.py
 
-data/
+.docker/data/
 postgresql/
-
-.docker/notebooks
-
-.docker/datacube_conf/*
-!.docker/datacube_conf/datacube.conf
