@@ -17,109 +17,75 @@ Having a preconfigured Docker image of Open Data Cube, as provided in this repos
 
 It will be possible to launch [Jupyter Notebook](https://jupyter.org/), and you can access it through your web browser. It will allows to use Jupyter's interactive environment for your data analysis, visualization, and exploration tasks.
 
-> ⚠️ Note: The Dockerfile provided in this repository is tailored specifically for the ASI LCZ-ODC project. If you have specific requirements or need to customize the configuration, you can modify the Dockerfile accordingly to meet your needs.
+>
+> ⚠️ **Warning**
+> 
+> The Dockerfile provided in this repository is tailored specifically for the ASI LCZ-ODC project. If you have specific requirements or need to customize the configuration, you can modify the Dockerfile accordingly to meet your needs.
+> 
 
 ## Setup
 
-To run the Docker container, please follow one of the following steps:
+To run the project you need to setup:
+- [Docker](https://docs.docker.com/get-docker/),
+- [Docker Compose](https://docs.docker.com/compose/install/), and
+- [Make](https://www.gnu.org/software/make/) (optional, only used to speed up development and deployment).
 
-#### Option 1: Build the image from scratch:
+The entrypoint is the [Docker Compose file](docker-compose.yml) in the root of the repository. It defines the containers needed to spin up the architecture, namely:
+- a [PostgreSQL](https://www.postgresql.org/) database, and
+- an ad-hoc image with an Open Data Cube and a Jupiter Notebook installation.
 
-1. Clone this repository branch:
-   ```sh
-   $ git clone --branch Docker-ODC https://github.com/gisgeolab/LCZ-ODC.git
-   ```
-2. Move inside the cloned repository folder:
-   ```sh
-   $ cd <folder_path>
-   ```
-3. Run the following command:
-
-   ```sh
-   $ docker build -t lcz_odc .
-   ```
-
-#### Option 2: Download Compiled Docker image
-
-Alternatively, you can pull the Docker image directly from the Docker repository using the following link: [LCZ-ODC Docker Image](https://hub.docker.com/repository/docker/rodrigocedeno/lcz-odc/general).
-
-### Create the external volume to use as a data source
-
-Before running the Docker container, create an external volume to use as a data source by executing the following command. Execute the following command to create a volume named `volume_asi`:
+The architecture relies upon a set of **environment variables** sourced from a `.env` file. You can create said file starting from `.env.example` running
 
 ```sh
-$ docker volume create volume_asi
+cp .env.example .env
 ```
 
-Once the Docker image is available in the local system, run a Docker container using the created volume:
+and follow the comments in the file to properly set the variables.
+
+Now you need to build the _lcz-odc_ container using the Dockerfile in [.docker](.docker/Dockerfile) directory. The container is based on the official ODC [cube-in-a-box](https://github.com/opendatacube/cube-in-a-box) image with a set of Python libraries is installed on top. Moreover, it mounts a [startup script](./.docker/setup/entrypoint.sh) that:
+1. initializes Datacube,
+2. imports the data needed by the Notebooks, and
+3. starts the Jupiter Notebook server.
+
+>
+> 💡 **Tip**
+>
+> If you need to include other libraries in the container, add them in the [requirements.txt](./.docker/requirements.txt) file and rebuild the image.
+> 
+
+To build the image run
 
 ```sh
-$ docker run -p 8888:8888 --mount type=volume,src=volume_asi,target=/home/asi -it lcz_odc bash
+DOCKER_BUILDKIT=1 docker compose build
+```
+or
+```sh
+make build
 ```
 
-### Container Setup
+With the image in place, you can finally spin up the architecture in the compose file. Note that both the notebooks and the data are mounted as volumes. While the notebooks are versioned, the data are not, given their size. Contact one of the authors to retrieve them and place them in the `.docker/data` directory.
 
-Perform the following setup steps inside the Docker container.
-
-1. Start the PostgreSQL service:
+To spin up the architecture run
 
 ```sh
-$ system postgresql start;
+docker compose up -d
+```
+or
+```sh
+make up
 ```
 
-2. Activate the conda environment:
+The notebooks will be reachable from [localhost](http://localhost).
+
+To turn down the system run
 
 ```sh
-$ source activate odc_env;
+docker compose down
 ```
-
-3. Create `datacube_config` folder:
-
+or
 ```sh
-$ mkdir /home/asi/datacube_config;
+make down
 ```
-
-4. Change to `datacube_config` directory:
-
-```sh
-$ cd /home/asi/datacube_config;
-$ nano datacube.conf
-```
-
-5. Paste the following content into the `datacube.conf` file:
-
-```sh
-[datacube]
-db_database: agdcintegration
-
-#A blank host will use a local socket. Specify a hostname (such as localhost) to use TCP.
-db_hostname: localhost
-
-#Credentials are optional: you might have other Postgres authentication configured.
-#The default username otherwise is the current user id.
-db_username: your_username
-db_password: your_password
-```
-
-6. Start datacube system:
-
-```sh
-$ datacube system init;
-```
-
-7. Return to main folder:
-
-```sh
-$ cd ..
-```
-
-8. Once inside the Docker container, you can open Jupyter Notebook by running the following command in the container terminal:
-
-```sh
-$ jupyter notebook --ip 0.0.0.0 --port 8888 --allow-root
-```
-
-This will start Jupyter Notebook and make it accessible on port 8888. You can access it by opening your web browser and navigating to http://localhost:8888.
 
 ---
 

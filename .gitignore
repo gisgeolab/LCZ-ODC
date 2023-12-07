@@ -4,5 +4,7 @@
 **/.ipynb_checkpoints
 **/.~*.py
 
-.docker/data/
+.docker/data/**/*
+!.docker/data/.gitkeep
+
 postgresql/
