@@ -93,6 +93,7 @@ make down
 
 - <b>_Jesus Rodrigo Cedeno Jimenez_</b> (jesusrodrigo.cedeno@polimi.it)
 - <b>_Emanuele Capizzi_</b> (emanuele.capizzi@polimi.it)
+- <b>_Edoardo Pessina_</b> (edoardopessina.priv@gmail.com)
 
 ### Contacts - LCZ-ODC Project
 
