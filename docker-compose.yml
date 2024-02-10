@@ -35,6 +35,7 @@ services:
         condition: service_healthy
     build:
       context: .docker
+    restart: always
     environment:
       ODC_DB_HOSTNAME: ${ODC_DB_HOSTNAME}
       ODC_DB_DATABASE: ${ODC_DB_DATABASE}
