@@ -1,0 +1,7 @@
+#notebook_toolbar button.delete-button.btn.btn-default.btn-xs.btn-danger {
+  display: none !important;
+}
+
+#shutdown {
+  display: none !important;
+}

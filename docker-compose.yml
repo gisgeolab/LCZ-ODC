@@ -46,6 +46,7 @@ services:
     volumes:
       - ./.docker/notebooks:/home/asi/notebooks
       - ./.docker/datacube_conf:/home/asi/datacube_conf
+      - ./.docker/.jupyter:/home/asi/.jupyter
     ports:
       - 80:8888
     networks:

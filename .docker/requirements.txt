@@ -9,3 +9,4 @@ sodapy
 imagecodecs
 seaborn
 leafmap
+xarray-spatial
