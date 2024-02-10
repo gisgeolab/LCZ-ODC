@@ -10,3 +10,4 @@ imagecodecs
 seaborn
 leafmap
 xarray-spatial
+mapclassify
