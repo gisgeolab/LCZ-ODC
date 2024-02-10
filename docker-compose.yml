@@ -44,7 +44,7 @@ services:
       NBK_SERVER_PASSWORD: ${NBK_SERVER_PASSWORD}
     volumes:
       - ./.docker/notebooks:/home/asi/notebooks
-      - ./.docker/data:/home/asi/data
+      - ./.docker/datacube_conf:/home/asi/datacube_conf
     ports:
       - 80:8888
     networks:

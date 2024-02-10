@@ -4,7 +4,11 @@
 **/.ipynb_checkpoints
 **/.~*.py
 
-.docker/data/**/*
-!.docker/data/.gitkeep
+.docker/v1
+.docker/datacube_conf/*
+!.docker/datacube_conf/pipelines
+!.docker/datacube_conf/data
+.docker/datacube_conf/data/**/*
+!.docker/datacube_conf/data/.gitkeep
 
 postgresql/
