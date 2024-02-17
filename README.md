@@ -3,13 +3,13 @@ This Repository contains examples of pan-sharpening methods applied to hyperspec
 
 Pan-sharpening is applied to the **Visible and Near-InfraRed** (VNIR) **bands of PRISMA** (66 bands, 30m resolution) and to the **Sentinel-2 bands** (9 band, 20m resolution), leveraging the **panchromatic PRISMA band** (single band, 5m resolution). Images should be co-registered and pre-processed according to the workflow of the LCZ-ODC project, implemented and available within the project's GitHub Repo[<sup>2</sup>](#2).
 
-The Python code implementing the pan-sharpening algorithms is provided in `methods.py`. The functions implemented in a dedicated GitHub Repo[<sup>3</sup>](#3) are here adapted to be applied to PRISMA and Sentinel-2 images. Specifically, the implemented methods include **Principal Component Analysis**, **Gram-Schmidt Decomposition**, and **Gram-Schmidt Adaptive**, which belong to the category of *component substitution-based algorithms*. Metrics for pan-sharpening quality assessment, adapted from a dedicated GitHub Repo[<sup>4</sup>](#4), are implemented in `metrics.py`. The `functions.py` file contains ancillary functionalities for data preparation and processing.
+The Python code implementing the pan-sharpening algorithms is provided in [`methods.py`](https://github.com/gisgeolab/LCZ-ODC/blob/Pansharpening/methods.py). The functions implemented in a dedicated GitHub Repo[<sup>3</sup>](#3) are here adapted to be applied to PRISMA and Sentinel-2 images. Specifically, the implemented methods include **Principal Component Analysis**, **Gram-Schmidt Decomposition**, and **Gram-Schmidt Adaptive**, which belong to the category of *component substitution-based algorithms*. Metrics for pan-sharpening quality assessment, adapted from a dedicated GitHub Repo[<sup>4</sup>](#4), are implemented in [`metrics.py`](https://github.com/gisgeolab/LCZ-ODC/blob/Pansharpening/metrics.py). The [`functions.py`](https://github.com/gisgeolab/LCZ-ODC/blob/Pansharpening/functions.py) file contains ancillary functionalities for data preparation and processing.
 
 Notebooks are structured as follows:
-* `1a - PRISMA-pansharpening.ipynb`: pan-sharpening of PRISMA images;
-* `1b - PRISMA-S2-pansharpening.ipynb`: pan-sharpening of Sentinel-2 images;
-* `2a - PRISMA-pan_quality.ipynb`: assessment of PRISMA pan-sharpened image quality;
-* `2b - PRISMA-S2-pan_quality.ipynb`: assessment of Sentinel-2 pan-sharpened image quality.
+* [`1a - PRISMA-pansharpening.ipynb`](https://github.com/gisgeolab/LCZ-ODC/blob/Pansharpening/1a%20-%20PRISMA-pansharpening.ipynb): pan-sharpening of PRISMA images;
+* [`1b - PRISMA-S2-pansharpening.ipynb`](https://github.com/gisgeolab/LCZ-ODC/blob/Pansharpening/1b%20-%20PRISMA-S2-pansharpening.ipynb): pan-sharpening of Sentinel-2 images;
+* [`2a - PRISMA-pan_quality.ipynb`](https://github.com/gisgeolab/LCZ-ODC/blob/Pansharpening/2a%20-%20PRISMA-pan_quality.ipynb): assessment of PRISMA pan-sharpened image quality;
+* [`2b - PRISMA-S2-pan_quality.ipynb`](https://github.com/gisgeolab/LCZ-ODC/blob/Pansharpening/2b%20-%20PRISMA-S2-pan_quality.ipynb): assessment of Sentinel-2 pan-sharpened image quality.
 
 The complete description of the functionalities is provided within each notebook.
 
