@@ -1,6 +1,6 @@
 # Temperature Analysis within Local Climate Zones
 
-This repository provides tools to access temperature measurements from ARPA stations within the metropolitan area of Milan. The goal is to analyse the correlation between temperature readings across different stations to identify potential Urban Heat Island (UHI) effects in Milan.
+This repository provides tools to access temperature measurements from ARPA stations within the metropolitan area of Milan. The goal is to analyse the correlation between temperature readings across different stations to identify potential Urban Heat Island (UHI) effects in Milan.  Additionally, there is a section that filters the data based on a specific wind speed threshold to determine if the temperature compositions undergo changes and to assess the influence of wind speed.
 
 
 ## Data Access and Interface:
@@ -35,6 +35,9 @@ The choice between ANOVA and Kruskal-Wallis is determined by the nature of the d
 
 **Note**: All statistical tests operate under the null hypothesis that there are no differences between the groups' temperature measurements. The p-value threshold for rejecting the null hypothesis is set at 0.05.
 
+## Wind Speed Influence:
+
+The prepared dataframe **wind_df.csv** containing wind speed measurements for the stations used in the temperature studies in the previous section is available. This section of the code can apply a specified wind speed threshold and display the temperature distribution within these stations, based on the given criteria, to evaluate if temperature decreases with increasing wind speed using box plots. Please note that not all stations have wind speed measurements.
 
 ---
 ### Contacts and Authors
