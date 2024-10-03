@@ -24,7 +24,7 @@ The first two Notebooks are dedicated to data pre-processing. They allow the use
 ---
 ## How to cite: 
 
-Capizzi Emanuele, Vavassori Alberto and Cedeno Rodrigo (2024). *Processing, co-registration, and classification in LCZ of PRISMA and Sentinel-2 imagery (Version v1.0)*. Zenodo. **https://doi.org/10.5281/ZENODO.13884805**
+Capizzi, E., Vavassori, A., & Cedeno, R. (2024). Processing, co-registration, and classification in LCZ of PRISMA and Sentinel-2 imagery (v1.0). Zenodo. **https://doi.org/10.5281/zenodo.13884806**
 
 This Repository represents the official repository linked to the following scientific paper:
 
