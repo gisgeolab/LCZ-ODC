@@ -21,6 +21,17 @@ The first two Notebooks are dedicated to data pre-processing. They allow the use
 * [`5 - Classification.ipynb`](https://github.com/gisgeolab/LCZ-ODC/blob/Processing-Notebooks/5%20-%20Classification.ipynb), [`5a - Classification_S2.ipynb`](https://github.com/gisgeolab/LCZ-ODC/blob/Processing-Notebooks/5a%20-%20Classification_S2.ipynb): performs LCZ classification, integrating the urban canopy parameter layers to the PRISMA PCs (or to the Sentinel-2 bands). The user can import training samples in shapefile o geopackage format, where each polygon corresponds to a LCZ class. The classification can be performed using different classification methods available in the [scikit-learn](https://scikit-learn.org/stable/index.html) and [XGBoost](https://xgboost.readthedocs.io/en/stable/) libraries. Methods implemented in this notebook are Random Forest, AdaBoost, Gradient Boosting (*scikit-learn* library), and XGBoost (*XGBoost* library). The code is structured also to perform hyperparameter tuning for a set of user-defined parameters.
 * [`6 - Validation.ipynb`](https://github.com/gisgeolab/LCZ-ODC/blob/Processing-Notebooks/6%20-%20Validation.ipynb), [`6a - Validation_S2.ipynb`](https://github.com/gisgeolab/LCZ-ODC/blob/Processing-Notebooks/6a%20-%20Validation_S2.ipynb), and [`6b - Validation_LCZGen.ipynb`](https://github.com/gisgeolab/LCZ-ODC/blob/Processing-Notebooks/6b%20-%20Validation_LCZGen.ipynb): allows the user to assess the LCZ map accuracy on specified testing samples, provided in shapefile or geopackage format. The code computes the confusion matrix and statistics including overall accuracy, precision, recall, and f1-score.
 
+---
+## How to cite: 
+
+Capizzi Emanuele, Vavassori Alberto and Cedeno Rodrigo (2024). *Processing, co-registration, and classification in LCZ of PRISMA and Sentinel-2 imagery (Version v1.0)*. Zenodo. **https://doi.org/10.5281/ZENODO.13884805**
+
+This Repository represents the official repository linked to the following scientific paper:
+
+Vavassori, A., Oxoli, D., Venuti, G., Brovelli, M. A., Siciliani de Cumis, M., Sacco, P., & Tapete, D. (2024). **A combined Remote Sensing and GIS-based method for Local Climate Zone mapping using PRISMA and Sentinel-2 imagery**. In *International Journal of Applied Earth Observation and Geoinformation* (Vol. 131, p. 103944). Elsevier BV. **https://doi.org/10.1016/j.jag.2024.103944**
+
+---
+
 ## Environment setup
 
 It is possible to set up a virtual Python environment using [Anaconda](https://anaconda.org). 
